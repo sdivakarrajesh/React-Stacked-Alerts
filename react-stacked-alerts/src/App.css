@@ -1,0 +1,123 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.demo-page {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: #212529;
+    background-color: #dae0e5;
+    border-color: #d3d9df;
+    outline: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn:not(:disabled):not(.disabled):focus {
+    box-shadow: 0 0 0 0.2rem #f8f9fa80;
+}
+
+
+/*Alerts*/
+
+.alerts-container {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 10000000;
+    max-width: 35vw;
+}
+
+.alert-dialog {
+    font-size: 30px;
+    max-width: 100%;
+    position: relative;
+    right: -500px;
+    transition: all 0.3s ease;
+    animation: slideintoview 1s forwards;
+}
+
+.added-favorite-alert {
+    padding: 20px 30px;
+    background-color: #3f3f3f;
+}
+
+@keyframes slideintoview {
+    0% {
+        right: -500px;
+        opacity: 0;
+    }
+    100% {
+        right: 0px;
+        opacity: 1;
+    }
+}
+
+.alert-dialog-dismissing {
+    max-width: 100%;
+    position: relative;
+    margin-top: 20px;
+    right: 0px;
+    transition: all 0.5s ease;
+    animation: slideoutofview 1s forwards;
+}
+
+@keyframes slideoutofview {
+    0% {
+        right: 0px;
+        opacity: 1;
+    }
+    100% {
+        right: -500px;
+        opacity: 0;
+    }
+}
+
+.alert-dialog,
+.alert-dialog-dismissing {
+    margin-top: 20px;
+}
+
+.labelled-alert-label {
+    min-height: 20px;
+    min-width: 100px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.labelled-alert-content {
+    min-height: 30px;
+    min-width: 100px;
+    font-size: 20px;
+    vertical-align: middle;
+    background-color: white;
+    padding: 10px 20px;
+}
