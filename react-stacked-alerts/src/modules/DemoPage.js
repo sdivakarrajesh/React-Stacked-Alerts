@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AlertsManager from './alerts/AlertsManager'
-import {LabelledAlert} from './alerts/alertTemplates'
+import {LabelledAlert, ShadedAlert} from './alerts/alertTemplates'
 export default class DemoPage extends React.Component{
     constructor(props){
         super(props)
@@ -9,16 +9,31 @@ export default class DemoPage extends React.Component{
         this.addDummyAlert = this.addDummyAlert.bind(this);
     }
 
-    addDummyAlert(){
-        AlertsManager.addAlert(<LabelledAlert key={'added favorite'} 
-                                label="Demo"
-                                alert_content="This is a demo alert"
-                                label_color="red"/>)
+    addDummyAlert(type){
+        switch(type){
+            case 'labelled': 
+                AlertsManager.addAlert(<LabelledAlert key={'added favorite'}
+                    label="Demo"
+                    alert_content="This is a demo alert"
+                    label_color="red" />)
+            break;
+            case 'shaded':
+                AlertsManager.addAlert(<ShadedAlert key={'added favorite'}
+                    label="Demo"
+                    alert_content="This is a demo alert"
+                    label_color="#EB8F87"
+                    border_right_color='#D92B1A'
+                     />)
+                    break
+        }
+
     }
 
     render(){
         return(<div className='demo-page'>
-            <button className='btn' onClick={this.addDummyAlert}>Show Alert</button>
+            <button className='btn' onClick={() => { this.addDummyAlert('labelled')}}>Show Labelled Alert</button>
+            <br/>
+            <button className='btn' onClick={() => { this.addDummyAlert('shaded')}}>Show Shaded Alert</button>
         </div>)
     }
 }
